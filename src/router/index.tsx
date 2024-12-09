@@ -1,4 +1,4 @@
-import { Home } from "@/pages"
+import { HomePage } from "@/pages"
 import { RootLayout } from "@/widgets"
 import { createBrowserRouter } from "react-router-dom"
 
@@ -9,20 +9,20 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <HomePage />
       },
       {
         path: "weather",
         lazy: async () => {
-          const { Weather } = await import("../pages/weather/weater")
-          return { Component: Weather, loader: () => <div>sdsd</div> }
+          const { WeatherPage } = await import("../pages/weather/weater-page")
+          return { Component: WeatherPage, loader: () => <div>sdsd</div> }
         }
       },
       {
         path: "tic-tac-toe",
         lazy: async () => {
-          const { TicTacToe } = await import("../pages/tic-tac-toe/tic-tac-toe")
-          return { Component: TicTacToe, loader: () => <div>sdsd</div> }
+          const { GamePage } = await import("../pages/game/game-page")
+          return { Component: GamePage, loader: () => <div>sdsd</div> }
         }
       },
       {

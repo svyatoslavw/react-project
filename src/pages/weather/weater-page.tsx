@@ -1,3 +1,3 @@
-export function Weather() {
+export function WeatherPage() {
   return <div>WeatherPage</div>
 }

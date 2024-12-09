@@ -1,5 +1,5 @@
 import { Table } from "@/components"
 
-export function Home() {
+export function HomePage() {
   return <Table />
 }

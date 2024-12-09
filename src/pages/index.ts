@@ -1,2 +1,3 @@
-export { Home } from "./home/home"
-export { Weather } from "./weather/weater"
+export { GamePage } from "./game/game-page"
+export { HomePage } from "./home/home-page"
+export { WeatherPage } from "./weather/weater-page"

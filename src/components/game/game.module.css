@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activeButton {
+  background-color: var(--color-primary) !important;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.column {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--color-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  will-change: color;
+  transition: 0.5s ease-out;
+}
+
+.updated {
+  animation: cellAnimation 0.5s ease-out;
+}
+
+@keyframes cellAnimation {
+  0% {
+    color: transparent;
+  }
+  50% {
+    color: #ffffff80;
+  }
+
+  100% {
+    color: var(--color-foreground);
+  }
+}
+
+.cell:hover {
+  background-color: var(--color-card);
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  min-height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-card);
+  color: var(--color-foreground);
+  padding: 1rem;
+  border-radius: var(--border-radius-lg);
+}

@@ -1,0 +1,17 @@
+.button {
+  padding: 0.5rem 1.5rem;
+  font-weight: var(--font-semibold);
+  border-radius: var(--border-radius-lg);
+  border: none;
+  background: var(--color-card);
+  color: var(--color-white);
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background: var(--color-primary);
+}
+
+.button:disabled {
+  background: var(--color-card);
+}

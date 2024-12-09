@@ -17,8 +17,7 @@ export function Table() {
       if (!containerRef.current) return
 
       const isAtBottom =
-        containerRef.current.scrollTop + containerRef.current.clientHeight >=
-        containerRef.current.scrollHeight - 50
+        containerRef.current.scrollTop + containerRef.current.clientHeight >= containerRef.current.scrollHeight - 50
 
       console.log(isAtBottom)
 
@@ -40,9 +39,7 @@ export function Table() {
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch(
-          `https://jsonplaceholder.typicode.com/comments?_limit=10&_page=${page}`
-        )
+        const response = await fetch(`https://jsonplaceholder.typicode.com/comments?_limit=10&_page=${page}`)
         const data = (await response.json()) as Comment[]
         setComments((prev) => [...prev, ...data])
       } catch (error) {
@@ -52,7 +49,7 @@ export function Table() {
       }
     }
 
-    const debounced = debounce(fetchUsers, 2_000)
+    const debounced = debounce(fetchUsers, 1_000)
     debounced()
   }, [page])
 
