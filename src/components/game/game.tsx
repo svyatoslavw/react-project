@@ -2,10 +2,10 @@ import { GameModal } from "@/components/game/game-modal"
 import { winningConditions } from "@/shared/constants"
 import { debounce } from "@/shared/lib"
 import { Button } from "@/shared/ui"
-import { GameField, GamePosition, GameStatus, GameSymbol } from "@/types"
+import { GameField as GameFieldType, GamePosition, GameStatus, GameSymbol } from "@/types"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { GameButtonSymbol } from "./game-button-symbol"
-import GameCell from "./game-cell"
+import { GameField } from "./game-field"
 import styles from "./game.module.css"
 
 const EMPTY_FIELD = [
@@ -15,7 +15,7 @@ const EMPTY_FIELD = [
 ]
 
 const Game = () => {
-  const [field, setField] = useState<GameField>(EMPTY_FIELD)
+  const [field, setField] = useState<GameFieldType>(EMPTY_FIELD)
 
   const [isGameStarted, setIsGameStarted] = useState(false)
   const [isUserChoice, setIsUserChoice] = useState(true)
@@ -71,22 +71,14 @@ const Game = () => {
 
       if (field[colIdx][rowIdx] !== "") return
 
-      setClickedCell({ col: colIdx, row: rowIdx })
-
       setField((prev) =>
         prev.map((col, idx) => (idx === colIdx ? col.map((row, rIdx) => (rIdx === rowIdx ? symbol : row)) : col))
       )
       setIsUserChoice(false)
+      setClickedCell({ col: colIdx, row: rowIdx })
     },
-    [isUserChoice, field, symbol, isGameStarted, clickedCell]
+    [isUserChoice, field, symbol, isGameStarted]
   )
-
-  useEffect(() => {
-    if (clickedCell) {
-      const timerId = setTimeout(() => setClickedCell(null), 500)
-      return () => clearTimeout(timerId)
-    }
-  }, [clickedCell])
 
   const botRandomChoice = useCallback(() => {
     const randomColIdx = Math.floor(Math.random() * 3)
@@ -121,6 +113,13 @@ const Game = () => {
     }
   }, [field, isUserChoice])
 
+  useEffect(() => {
+    if (clickedCell) {
+      const timerId = setTimeout(() => setClickedCell(null), 500)
+      return () => clearTimeout(timerId)
+    }
+  }, [clickedCell])
+
   return (
     <div className={styles.container}>
       <section className={styles.info}>
@@ -130,22 +129,7 @@ const Game = () => {
           <GameButtonSymbol isGameStarted={isGameStarted} setSymbol={setSymbol} currentSymbol={symbol} symbol="O" />
         </div>
       </section>
-      <section className={styles.board}>
-        {field.map((col, colIdx) => (
-          <div className={styles.column}>
-            {col.map((row, rowIdx) => (
-              <GameCell
-                clickedCell={clickedCell?.col === colIdx && clickedCell?.row === rowIdx}
-                key={rowIdx}
-                columnIdx={colIdx}
-                rowIdx={rowIdx}
-                row={row}
-                selectCellSymbol={selectCellSymbol}
-              />
-            ))}
-          </div>
-        ))}
-      </section>
+      <GameField field={field} clickedCell={clickedCell} selectCellSymbol={selectCellSymbol} />
       {status && <GameModal status={status} />}
       <Button disabled={isGameStarted} className={!isGameStarted ? styles.activeButton : ""} onClick={startNewGame}>
         Start New Game

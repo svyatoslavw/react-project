@@ -13,6 +13,7 @@ p {
 
 :root {
   --color-primary: #5353d4;
+  --color-primary-dark: #3b3ba9;
   --color-secondary: #4ade80;
   --color-card: #212121;
   --color-card-light: #2b2b2b;
@@ -37,6 +38,7 @@ p {
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
   --font-normal: 400;
   --font-medium: 500;

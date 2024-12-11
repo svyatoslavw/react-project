@@ -14,7 +14,7 @@ function GameCell({ columnIdx, row, rowIdx, clickedCell, selectCellSymbol }: Gam
     <div
       key={rowIdx}
       onClick={() => selectCellSymbol(columnIdx, rowIdx)}
-      className={`${styles.cell} ${clickedCell ? styles.updated : ""}`}
+      className={`${styles.cell} ${clickedCell ? styles.updatedCell : ""}`}
     >
       {row}
     </div>

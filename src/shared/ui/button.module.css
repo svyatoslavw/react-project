@@ -6,12 +6,32 @@
   background: var(--color-card);
   color: var(--color-white);
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.button:hover {
+.active {
   background: var(--color-primary);
 }
 
-.button:disabled {
+.active:hover {
+  background: var(--color-primary-dark);
+}
+
+.icon {
+  font-weight: var(--font-semibold);
+  border-radius: var(--border-radius-base);
+  font-size: var(--font-size-sm);
+  border: none;
+  aspect-ratio: 1/1;
+  background: var(--color-card);
+  color: var(--color-white);
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background: var(--color-primary);
+}
+
+button:disabled {
   background: var(--color-card);
 }
