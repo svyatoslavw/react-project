@@ -1,12 +1,11 @@
-import { UserList } from "@/components"
-import { TodoList } from "@/components/todo"
-import styles from "./home-page.module.css"
+import { Todos, UserList } from "@/components"
+import styles from "./home.module.css"
 
 export function HomePage() {
   return (
     <div className={styles.page}>
       <UserList />
-      <TodoList />
+      <Todos />
     </div>
   )
 }

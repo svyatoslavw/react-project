@@ -2,8 +2,8 @@ import { debounce } from "@/shared/lib"
 import { Loader } from "@/shared/ui"
 import { User } from "@/types"
 import { useEffect, useRef, useState } from "react"
-import { UserItem } from "./users-item"
-import styles from "./users-table.module.css"
+import { UserItem } from "./user-item"
+import styles from "./user.module.css"
 
 export function UserList() {
   const [comments, setComments] = useState<User[]>([])

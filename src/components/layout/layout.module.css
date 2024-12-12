@@ -1,3 +1,13 @@
+.container {
+  margin: 0 auto;
+  max-width: 40rem;
+  overflow: hidden;
+  width: 100%;
+  padding-bottom: 3rem;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
 .header {
   margin-bottom: 1.5rem;
   display: flex;

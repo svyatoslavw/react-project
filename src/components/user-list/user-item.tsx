@@ -1,5 +1,5 @@
 import { User } from "@/types"
-import styles from "./users-table.module.css"
+import styles from "./user.module.css"
 
 export function UserItem({ user }: { user: User }) {
   return (

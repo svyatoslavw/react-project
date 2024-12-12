@@ -1,5 +1,5 @@
+import { RootLayout } from "@/components"
 import { HomePage } from "@/pages"
-import { RootLayout } from "@/widgets"
 import { createBrowserRouter } from "react-router-dom"
 
 export const router = createBrowserRouter([
@@ -10,13 +10,6 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
-      },
-      {
-        path: "weather",
-        lazy: async () => {
-          const { WeatherPage } = await import("../pages/weather/weater-page")
-          return { Component: WeatherPage, loader: () => <div>sdsd</div> }
-        }
       },
       {
         path: "tic-tac-toe",
