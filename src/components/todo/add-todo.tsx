@@ -1,6 +1,7 @@
 import { useTodoStore } from "@/entities/todo"
-import { Button, Input } from "@/shared/ui"
-import { useCallback, useState } from "react"
+import { TextField } from "@mui/material"
+import Button from "@mui/material/Button"
+import { useState } from "react"
 import styles from "./todo.module.css"
 
 const AddTodo = () => {
@@ -8,12 +9,16 @@ const AddTodo = () => {
 
   const addTodo = useTodoStore((state) => state.addTodo)
 
-  const handleAddTodo = () => useCallback(() => addTodo({ title }), [addTodo, title])
-
   return (
     <div className={styles.addTodo}>
-      <Input value={title} onChange={(e) => setTitle(e.target.value)} type="text" placeholder="New todo" />
-      <Button onClick={handleAddTodo} isActive>
+      <TextField
+        color="primary"
+        size="small"
+        placeholder="New todo"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <Button variant="contained" onClick={() => addTodo({ title })}>
         Add
       </Button>
     </div>

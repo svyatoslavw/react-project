@@ -1,6 +1,5 @@
-import { Button } from "@/shared/ui"
 import { GameSymbol } from "@/types"
-import styles from "./game.module.css"
+import Button from "@mui/material/Button"
 
 interface GameButtonSymbolProps {
   symbol: GameSymbol
@@ -13,7 +12,7 @@ export function GameButtonSymbol({ setSymbol, currentSymbol, isGameStarted, symb
   return (
     <Button
       disabled={isGameStarted}
-      className={currentSymbol === symbol ? styles.activeButton : ""}
+      variant={currentSymbol === symbol ? "contained" : "outlined"}
       onClick={() => setSymbol(symbol)}
     >
       {symbol}

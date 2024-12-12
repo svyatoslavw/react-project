@@ -41,7 +41,7 @@
   border-radius: var(--border-radius-lg);
   padding: 0.5rem 1rem;
   color: inherit;
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semibold);
 }
 
 .link:hover {
@@ -54,7 +54,7 @@
 
 .linkActive {
   color: var(--color-primary);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semibold);
 
   background-color: var(--color-card);
   border-radius: var(--border-radius-lg);

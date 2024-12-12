@@ -1,5 +1,6 @@
-import { Button, Input } from "@/shared/ui"
 import { Todo } from "@/types"
+import { IconButton } from "@mui/material"
+import Checkbox from "@mui/material/Checkbox"
 import { memo } from "react"
 import styles from "./todo.module.css"
 
@@ -13,12 +14,12 @@ const TodoItem = memo(({ todo, deleteTodo, toggleTodo }: TodoItemProps) => {
   return (
     <div className={styles.item}>
       <div className={styles.left}>
-        <Input type="checkbox" onChange={() => toggleTodo(todo.id)} checked={todo.completed} />
+        <Checkbox onChange={() => toggleTodo(todo.id)} checked={todo.completed} />
         <span>{todo.title}</span>
       </div>
-      <Button onClick={() => deleteTodo(todo.id)} asIcon>
+      <IconButton size="small" color="inherit" onClick={() => deleteTodo(todo.id)}>
         ✕
-      </Button>
+      </IconButton>
     </div>
   )
 })

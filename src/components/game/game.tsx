@@ -1,8 +1,8 @@
 import { GameModal } from "@/components/game/game-modal"
 import { winningConditions } from "@/shared/constants"
 import { debounce } from "@/shared/lib"
-import { Button } from "@/shared/ui"
 import { GameField as GameFieldType, GamePosition, GameStatus, GameSymbol } from "@/types"
+import Button from "@mui/material/Button"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { GameButtonSymbol } from "./game-button-symbol"
 import { GameField } from "./game-field"
@@ -131,7 +131,7 @@ const Game = () => {
       </section>
       <GameField field={field} clickedCell={clickedCell} selectCellSymbol={selectCellSymbol} />
       {status && <GameModal status={status} />}
-      <Button disabled={isGameStarted} className={!isGameStarted ? styles.activeButton : ""} onClick={startNewGame}>
+      <Button disabled={isGameStarted} variant={!isGameStarted ? "contained" : "outlined"} onClick={startNewGame}>
         Start New Game
       </Button>
     </div>

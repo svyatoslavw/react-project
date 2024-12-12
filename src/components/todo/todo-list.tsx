@@ -6,8 +6,6 @@ import styles from "./todo.module.css"
 const TodoList = () => {
   const { todos, deleteTodo, toggleTodo } = useTodoStore()
 
-  console.log("@render")
-
   const handleDeleteTodo = useCallback(deleteTodo, [deleteTodo])
   const handleToggleTodo = useCallback(toggleTodo, [toggleTodo])
 
